@@ -26,8 +26,6 @@ while (true)
     string? data = null;
     if (choice is "1")
     {
-        Console.WriteLine(
-            "Waiting for HTTP request data at http://localhost:5000 ...");
 
         WebApplicationBuilder builder = WebApplication.CreateBuilder();
         WebApplication app = builder.Build();
@@ -46,9 +44,12 @@ while (true)
             lifetime.StopApplication();
             return Task.CompletedTask;
         });
-
         app.Start();
-        app.WaitForShutdown(); // e.g. curl http://localhost:5000/data-from-http
+
+        Console.WriteLine(
+            "Waiting for HTTP request data at http://localhost:5000 ...");
+        // e.g. curl http://localhost:5000/data-from-http
+        app.WaitForShutdown();
     }
     else if (choice is "2")
     {
