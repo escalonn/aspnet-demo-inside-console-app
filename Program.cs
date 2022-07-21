@@ -40,7 +40,7 @@ while (true)
 
             IHostApplicationLifetime lifetime = context.RequestServices
                 .GetRequiredService<IHostApplicationLifetime>();
-            // schedules the WebApplication to stop after this response is done
+            // schedules the host to stop after this response is done
             lifetime.StopApplication();
             return Task.CompletedTask;
         });
@@ -54,7 +54,7 @@ while (true)
     else if (choice is "2")
     {
         // can draw attention to how the program waits indefinitely for
-        // stdin, just like the WebApplication waits indefinitely for
+        // stdin, just like the asp.net host waits indefinitely for
         // a request
         Console.WriteLine("Provide data to stdin: ");
         data = Console.ReadLine();
