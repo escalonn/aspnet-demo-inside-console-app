@@ -2,9 +2,9 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-// some of those using directives are required for extension methods used below.
-// we don't need them in "asp.net core projects" because the web sdk includes
-// them as implicit global using directives.
+// some of those using directives are required for extension methods used
+// below. we don't need them in "asp.net core projects" because the web sdk
+// includes them as implicit global using directives.
 
 // the only change made to the project file is adding the FrameworkReference.
 // framework references are similar to package references, but draw their
@@ -26,6 +26,9 @@ while (true)
     string? data = null;
     if (choice is "1")
     {
+        Console.WriteLine(
+            "Waiting for HTTP request data at http://localhost:5000 ...");
+
         WebApplicationBuilder builder = WebApplication.CreateBuilder();
         WebApplication app = builder.Build();
         app.Run(context =>
