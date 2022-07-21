@@ -46,8 +46,9 @@ while (true)
             lifetime.StopApplication();
             return Task.CompletedTask;
         });
-        // this method blocks until the WebApplication shuts down
-        app.Run(); // e.g. curl http://localhost:5000/data-from-http
+
+        app.Start();
+        app.WaitForShutdown(); // e.g. curl http://localhost:5000/data-from-http
     }
     else if (choice is "2")
     {
